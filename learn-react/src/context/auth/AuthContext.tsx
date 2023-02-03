@@ -1,11 +1,7 @@
 import React, { Dispatch, SetStateAction } from "react";
+import {AuthContextInterface} from '../../types';
 
-export interface IAuthContext {
-  authenticated: boolean;
-  setAuthenticated: Dispatch<SetStateAction<boolean>>;
-}
+const AuthContext = React.createContext<AuthContextInterface | null>(null);
 
-export const AuthContext = React.createContext<IAuthContext>({
-  authenticated: false,
-  setAuthenticated: () => false
-});
+const AuthContextConsumer = AuthContext.Consumer;
+export {AuthContext, AuthContextConsumer};
